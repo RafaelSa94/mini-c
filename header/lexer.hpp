@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <regex>
 
 enum class Token{
   Type,
@@ -11,7 +12,7 @@ enum class Token{
   Bool,
   PlusOp,
   TimesOp,
-  Atribuition,
+  AssignOp,
   LessEq,
   Equal,
   If,
