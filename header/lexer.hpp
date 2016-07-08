@@ -33,6 +33,6 @@ private:
   Token last;
 public:
   void getToken(std::string word);
-  Token() { }
-  virtual ~Token() { }
+  Lexer() { }
+  virtual ~Lexer() { }
 };

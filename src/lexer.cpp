@@ -13,11 +13,11 @@ void Lexer::getToken(std::string word) {
   static std::regex Integer("[:d:]+");
   static std::regex Identifier("[:alpha:][:w:]+"); // w = alphanum
 
-  if (std::regex_match(Iteger, word)) {
-    this->NumVal = std::atoi(word);
+  if (std::regex_match(word, Integer)) {
+    this->NumVal = std::atoi(word.c_str());
     this->last   = Token::Integer;
   }
-  else if(std::regex_match(Identifier, word)) {
+  else if(std::regex_match(word, Identifier)) {
     //if's aninhados... :(
     if (!word.compare("if")) {
       this->last = Token::If;
@@ -87,7 +87,7 @@ void Lexer::getToken(std::string word) {
       this->last = Token::Equal;
     }
     else if (!word.compare(":")) {
-      this->last = Token::DeclOp
+      this->last = Token::DeclOp;
     }
     else if (!word.compare(";")) {
       this->last = Token::EndCommand;
@@ -95,4 +95,5 @@ void Lexer::getToken(std::string word) {
     else {
       this->last = Token::ERROR;
     }
+  }
 }

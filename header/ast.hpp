@@ -9,11 +9,8 @@ enum class Type {
 };
 
 class DeclarationAST {
-private:
-  std::string var;
-  Type t;
 public:
-  DeclarationAST (std::string &var, Type t) : var(var), t(t) {}
+  virtual ~DeclarationAST () {}
 };
 
 class SimpleDeclarationAST : public DeclarationAST{
@@ -114,7 +111,7 @@ public:
   IfCommandAST(std::unique_ptr<ExprAST> condition,
                std::unique_ptr<CommandAST> then_command,
                std::unique_ptr<CommandAST> else_command)
-   : condition(std::move(condition)), then_command(std::move(else_command)), else_command(else_command) {}
+   : condition(std::move(condition)), then_command(std::move(else_command)), else_command(std::move(else_command)) {}
 };
 
 class WhileCommandAST : public CommandAST {
