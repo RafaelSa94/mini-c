@@ -9,7 +9,7 @@
   Ao final modificar o this->last para o token.
 */
 
-void Lexer::getToken(std::string word) {
+void Lexer::nextToken(std::string word) {
   static std::regex Integer("[:d:]+");
   static std::regex Identifier("[:alpha:][:w:]+"); // w = alphanum
 
@@ -33,10 +33,12 @@ void Lexer::getToken(std::string word) {
 
     else if (!word.compare("false")) {
       this->last = Token::Bool;
+      this->BoolVal = false;
     }
 
     else if (!word.compare("true")) {
       this->last = Token::Bool;
+      this->BoolVal = true;
     }
 
     else if (!word.compare("while")) {

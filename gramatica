@@ -1,0 +1,11 @@
+Inicio(P)
+P -> decl D begin C end
+D -> I : T | D ; D
+T -> int | bool
+C -> noop | C ; C | I = E | if E then C else C | while E do C
+I -> | aI' | bI' | ... | ZI'
+I'-> ε | I
+E -> N | I | E + E | E * E | E <= E | E == E | B
+B -> true | false
+N -> 0N' | 1N' | ... | 9N'
+N'-> ε | N

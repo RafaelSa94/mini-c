@@ -26,13 +26,19 @@ enum class Token{
   ERROR
 };
 
+
+
 struct Lexer {
 private:
-  std::string IdentifierStr;
-  int NumVal;
   Token last;
 public:
-  void getToken(std::string word);
+  void nextToken(std::string word);
+  Token getToken() {return this->last;}
+
+  std::string IdentifierStr;
+  int NumVal;
+  bool BoolVal;
+
   Lexer() { }
   virtual ~Lexer() { }
 };
