@@ -19,48 +19,80 @@ void Lexer::getToken(std::string word) {
   }
   else if(std::regex_match(Identifier, word)) {
     //if's aninhados... :(
-    else if (!word.compare(""))
+    if (!word.compare("if")) {
+      this->last = Token::If;
+    }
+    else if (!word.compare("then")) {
+      this->last = Token::Then;
+    }
 
+    else if (!word.compare("else")) {
+      this->last = Token::Else;
 
-  )
+    }
+
+    else if (!word.compare("false")) {
+      this->last = Token::Bool;
+    }
+
+    else if (!word.compare("true")) {
+      this->last = Token::Bool;
+    }
+
+    else if (!word.compare("while")) {
+      this->last = Token::While;
+
+    }
+
+    else if (!word.compare("do")) {
+      this->last = Token::Do;
+    }
+
+    else if (!word.compare("bool")) {
+      this->last = Token::Type;
+
+    }
+
+    else if (!word.compare("int")) {
+      this->last = Token::Type;
+    }
+
+    else if (!word.compare("decl")) {
+      this->last = Token::Decl;
+    }
+
+    else if (!word.compare("end")) {
+      this->last = Token::End;
+    }
+
+    else {
+      this->last = Token::Identifier;
+      this->IdentifierStr = word;
+    }
+  }
   else {
     if(!word.compare("+")) {
-
+      this->last = Token::PlusOp;
     }
     else if (!word.compare("*")) {
-
+      this->last = Token::TimesOp;
     }
     else if (!word.compare("=")) {
-
+      this->last = Token::AssignOp;
     }
     else if (!word.compare("<=")) {
-
+      this->last = Token::LessEq;
     }
     else if (!word.compare("==")) {
-
+      this->last = Token::Equal;
     }
-
-
-  }
-
-  }
-  static std::regex PlusOp("\\+");
-  static std::regex TimesOp("\\*");
-  static std::regex AssignOp("=");
-  static std::regex LessEq("<=");
-  static std::regex Equal("==");
-  static std::regex If("if");
-  static std::regex EndCommand(";");
-  static std::regex DeclOp(":");
-  static std::regex Then("then");
-  static std::regex Else("else");
-  static std::regex Bool("(false)|(true)");
-  static std::regex While("while");
-  static std::regex Do("do");
-  static std::regex Type("(bool)|(int)");
-  static std::regex Decl("decl");
-  static std::regex Begin("begin");
-  static std::regex End("end");
-
-
+    else if (!word.compare(":")) {
+      this->last = Token::DeclOp
+    }
+    else if (!word.compare(";")) {
+      this->last = Token::EndCommand;
+    }
+    else {
+      this->last = Token::ERROR;
+    }
 }

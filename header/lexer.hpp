@@ -22,9 +22,9 @@ enum class Token{
   Do,
   Decl,
   Begin,
-  End
+  End,
+  ERROR
 };
-Token bunda = Token::Begin;
 
 struct Lexer {
 private:
