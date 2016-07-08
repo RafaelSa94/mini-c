@@ -8,7 +8,6 @@ enum class Type {
   Bool
 };
 
-
 class DeclarationAST {
 private:
   std::string var;
@@ -33,8 +32,6 @@ public:
   CompositionDeclarationAST  (std::unique_ptr<DeclarationAST> d1, std::unique_ptr<DeclarationAST> d2)
     : d1(std::move(d1)), d2(std::move(d2)) {}
 };
-
-
 
 class ExprAST {
 public:
@@ -136,5 +133,4 @@ private:
 public:
   ProgramAST(std::unique_ptr<DeclarationAST> decl, std::unique_ptr<CommandAST> commands)
    : decl(std::move(decl)), commands(std::move(commands)) {}
-
-}
+};
