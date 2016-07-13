@@ -41,7 +41,6 @@ private:
 
   unique_ptr<DeclarationAST> LogErrorDecl(const char *Str);
   unique_ptr<DeclarationAST> Decl();
-  unique_ptr<DeclarationAST> BinDecl();
   unique_ptr<DeclarationAST> SimpleDecl();
 
   unique_ptr<CommandAST> LogErrorCommand(const char *Str);
