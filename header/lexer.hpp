@@ -12,6 +12,7 @@ enum class Token{
   Bool,
   PlusOp,
   TimesOp,
+  Noop,
   AssignOp,
   LessEq,
   Equal,

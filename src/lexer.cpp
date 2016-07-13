@@ -36,6 +36,10 @@ void Lexer::nextToken(std::string word) {
       this->BoolVal = false;
     }
 
+    else if (!word.compare("noop")) {
+      this->last = Token::Noop;
+    }
+
     else if (!word.compare("true")) {
       this->last = Token::Bool;
       this->BoolVal = true;
