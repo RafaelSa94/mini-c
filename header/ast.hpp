@@ -111,7 +111,7 @@ public:
   IfCommandAST(std::unique_ptr<ExprAST> condition,
                std::unique_ptr<CommandAST> then_command,
                std::unique_ptr<CommandAST> else_command)
-   : condition(std::move(condition)), then_command(std::move(else_command)), else_command(std::move(else_command)) {}
+   : condition(std::move(condition)), then_command(std::move(then_command)), else_command(std::move(else_command)) {}
 };
 
 class WhileCommandAST : public CommandAST {
